@@ -1,0 +1,38 @@
+﻿@model Depotakip.Models.Kategori
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h1>Kategori Ekle</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="KategoriId" class="control-label"></label>
+                <input asp-for="KategoriId" class="form-control" />
+                <span asp-validation-for="KategoriId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KategoriAd" class="control-label"></label>
+                <input asp-for="KategoriAd" class="form-control" />
+                <span asp-validation-for="KategoriAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Reyon.ReyonAd" class="control-label"></label>
+                <select asp-for="ReyonId" class ="form-control" asp-items="ViewBag.ReyonId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Oluştur" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Index">Listeye Dön</a>
+</div>

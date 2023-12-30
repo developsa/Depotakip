@@ -1,0 +1,30 @@
+﻿@model Depotakip.Models.Kategori
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<div>
+    <h4>Kategori</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.KategoriAd)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.KategoriAd)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Reyon)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Reyon.ReyonAd)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.KategoriId">Düzenle</a> |
+    <a asp-action="Index">Listeye Dön</a>
+</div>

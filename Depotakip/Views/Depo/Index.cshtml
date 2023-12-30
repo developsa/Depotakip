@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Depotakip.Models.Depo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<p>
+    <a asp-action="Create">Depo Ekle <i class="fa-solid fa-plus"></i> </a>
+</p>
+<table class="table table-bordered table-striped"id="depoid">
+    <thead class="bg-dark text-white">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adres)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kapasite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonelSayisi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adres)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kapasite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PersonelSayisi)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DepoId"> Düzenle<i class="fa-solid fa-pen-to-square"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.DepoId"><i class="fa-solid fa-circle-info"></i></a> |
+              
+                <a asp-action="Delete" asp-route-id="@item.DepoId"><i class="fa-solid fa-trash">Delete</i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+ <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+ <!--Search-->
+<!--https://datatables.net/manual/installation    bu siteden aldık jquery kullanıp tabloda deger aramada kolaylık sağladık-->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />   
+  
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+<script type="text/javascript">      
+var js=jQuery.noConflict(true);        //jQuery kullanarak tabloda arama sıralama sağlamış olduk
+js(document).ready(function(){
+
+    js("#depoid").DataTable({        // id from table
+
+         "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Turkish.json"
+            }
+    });
+
+}) ; 
+</script>

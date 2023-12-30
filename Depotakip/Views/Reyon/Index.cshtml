@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Depotakip.Models.Reyon>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<p>
+    <a asp-action="Create">Reyon Ekle <i class="fa-solid fa-plus"></i> </a>
+</p>
+<table class="table table-bordered table-striped" id="reyonid">
+    <thead class="bg-dark text-white">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Depo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReyonAd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReyonImg)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+      
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Depo.Ad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReyonAd)
+            </td>
+            <td>
+                 <img src="@("~/Image/"+item.ReyonImg)" asp-append-version=true width="100" height="100" />
+               
+            </td>
+            
+            <td>
+                 <a asp-action="Edit" asp-route-id="@item.ReyonId"> Düzenle<i class="fa-solid fa-pen-to-square"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.ReyonId"><i class="fa-solid fa-circle-info"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.ReyonId"><i class="fa-solid fa-trash">Delete</i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />   
+  
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+<script type="text/javascript">     
+var js=jQuery.noConflict(true);        
+js(document).ready(function(){
+
+    js("#reyonid").DataTable({       
+
+         "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Turkish.json"
+            }
+    });
+
+}) ; 
+</script>

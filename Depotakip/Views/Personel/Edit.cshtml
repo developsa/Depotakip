@@ -1,0 +1,88 @@
+﻿@model Depotakip.Models.Personel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+<h4>Personel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit"enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PersonelId" />
+            <div class="form-group">
+                <label asp-for="Ad" class="control-label"></label>
+                <input asp-for="Ad" class="form-control" />
+                <span asp-validation-for="Ad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Soyad" class="control-label"></label>
+                <input asp-for="Soyad" class="form-control" />
+                <span asp-validation-for="Soyad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Maas" class="control-label"></label>
+                <input asp-for="Maas" class="form-control" />
+                <span asp-validation-for="Maas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DogumTarihi" class="control-label"></label>
+                <input asp-for="DogumTarihi" class="form-control" />
+                <span asp-validation-for="DogumTarihi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                 <label asp-for="ImageFile" class="control-label"></label>
+                 @*<input type="file" name="uploadfile" id="img" style="display:none;"/>*@
+
+                 @*<input asp-for="ImageFile" type="file" class="form-control" value="@Model.PersonelFoto" id="fileName"/>*@
+
+                <input asp-for="ImageFile" class="form-control" multiple type="file"/>
+               
+                @* <input type="file" id="files" class="hidden"/>*@
+@*<label for="files">Select file</label>*@
+                @* <span id="fileStatus">@Model.PersonelFoto</span>*@
+                @*<div id="dosyaDurumu"></div>*@
+               <img src="@Url.Content("~/Image/" + Model.PersonelFoto)" asp-append-version="true"  width="100px" height="100px" id="img" />
+             </div>
+
+            <div class="form-group">
+                <label asp-for="Depo.Ad" class="control-label"></label>
+                <select asp-for="DepoId" class="form-control" asp-items="ViewBag.DepoId"></select>
+                <span asp-validation-for="DepoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                 <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Listeye dön</a>
+</div>
+
+@*<script>
+    var dosyaInput = document.getElementById('dosyaSecimInput');
+    var dosyaDurumu = document.getElementById('dosyaDurumu');
+
+    dosyaInput.addEventListener('change', function () {
+        if (dosyaInput.files.length > 0) {
+            // Dosya seçildiğinde, seçilen dosya sayısını ve adlarını görüntüle
+            dosyaDurumu.innerHTML = "Seçilen dosyalar: <ul>";
+            for (var i = 0; i < dosyaInput.files.length; i++) {
+                dosyaDurumu.innerHTML += "<li>" + dosyaInput.files[i].name + "</li>";
+            }
+            dosyaDurumu.innerHTML += "</ul>";
+        } else {
+            // Dosya seçilmediğinde, bir resim görüntüle
+            dosyaDurumu.innerHTML = '<img src="resim_yolunuz.png" alt="Dosya Seçilmedi" width="100" height="100" />';
+        }
+    });
+</script>*@
+
+
+ 

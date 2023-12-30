@@ -1,0 +1,54 @@
+﻿@model Depotakip.Models.Personel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+
+<div>
+    <h4>Personel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Soyad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Soyad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Maas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Maas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DogumTarihi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DogumTarihi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PersonelFoto)
+        </dt>
+        <dd class = "col-sm-10">
+              <img src="@Url.Content("~/Image/" + Model.PersonelFoto)" asp-append-version="true" width="100" height="100"  />
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Depo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Depo.Ad)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.PersonelId">Düzenle</a> |
+    <a asp-action="Index">Listeye dön</a>
+</div>

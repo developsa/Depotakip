@@ -1,0 +1,51 @@
+﻿@model Depotakip.Models.Admin
+
+@{
+    ViewData["Title"] = "Login";
+  Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+	<div class="card">
+			<div class="card-header">
+				<h3>SAĞLAM MARKET</h3>
+					</div>
+			<div class="card-body">
+				<form asp-action="Login">
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span asp-for="KullaniciAdi" class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input  asp-for="KullaniciAdi" type="text" class="form-control" placeholder="username" name="KullaniciAdi">
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span asp-for="Sifre" class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+						<input asp-for="Sifre" type="password" class="form-control" placeholder="password" name="Sifre">
+					</div>
+					
+                    <div class="input-group form-group">
+                        	<div class="form-group">
+						<input type="submit" value="Giriş" class="btn float-right login_btn">
+
+					</div>
+               
+                        </div>
+				
+				</form>
+
+			</div>
+			<div class="card-footer">
+                <p class="d-flex justify-content-center" style="color:azure">Kullanıcı Adı= <b>semih123</b></p>
+                  <p class="d-flex justify-content-center"style="color:azure"> Şifre= <b>123</b> </p>
+				<br />  
+				
+                         @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <div class="alert alert-danger" >
+        @ViewBag.ErrorMessage
+    </div>
+}
+			</div>
+		</div>
+

@@ -1,0 +1,38 @@
+﻿@model Depotakip.Models.Reyon
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<h3>Silmek istediğine emin misin?</h3>
+<div>
+    <h4>Reyon</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReyonAd)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReyonAd)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReyonImg)
+        </dt>
+        <dd class = "col-sm-10">
+             <img src="@Url.Content("~/Image/" + Model.ReyonImg)" asp-append-version="true" width="50" height="50"  />
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Depo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Depo.Ad)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ReyonId" />
+         <input type="submit" value="Sil" class="btn btn-danger" /> 
+        <a asp-action="Index">Listeye dön</a>
+    </form>
+</div>

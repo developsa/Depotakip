@@ -1,0 +1,57 @@
+﻿@model Depotakip.Models.Personel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+
+<h3>Silmek istediğine emin misin?</h3>
+<div>
+    <h4>Personel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Soyad)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Soyad)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Maas)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Maas)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DogumTarihi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DogumTarihi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PersonelFoto)
+        </dt>
+        <dd class = "col-sm-10">
+            <img src="@Url.Content("~/Image/" + Model.PersonelFoto)" asp-append-version="true" width="50" height="50"  />
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Depo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Depo.Ad)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="PersonelId" />
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        <a asp-action="Index">Listeye geri dön</a>
+    </form>
+</div>

@@ -1,0 +1,55 @@
+﻿@model Depotakip.Models.Urun
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<h4>Urun</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="UrunId" />
+            <div class="form-group">
+                <label asp-for="Kategori.KategoriAd" class="control-label"></label>
+                <select asp-for="KategoriId" class="form-control" asp-items="ViewBag.KategoriId"></select>
+                <span asp-validation-for="KategoriId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UrunAd" class="control-label"></label>
+                <input asp-for="UrunAd" class="form-control" />
+                <span asp-validation-for="UrunAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UrunAdet" class="control-label"></label>
+                <input asp-for="UrunAdet" class="form-control" />
+                <span asp-validation-for="UrunAdet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UrunFiyat" class="control-label"></label>
+                <input asp-for="UrunFiyat" class="form-control" />
+                <span asp-validation-for="UrunFiyat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gelistarih" class="control-label"></label>
+                <input asp-for="Gelistarih" class="form-control" />
+                <span asp-validation-for="Gelistarih" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageFile" class="control-label"></label>
+                <input asp-for="ImageFile" class="form-control" />
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Listeye Dön</a>
+</div>
+

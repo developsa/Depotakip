@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Depotakip.Models.Kategori>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<p>
+    <a asp-action="Create">Kategori Ekle <i class="fa-solid fa-plus"></i> </a>
+</p>
+<table class="table table-bordered table-striped" id="kategorid">
+    <thead class="bg-dark text-white">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KategoriAd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reyon)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KategoriAd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reyon.ReyonAd)
+            </td>
+            <td>
+                 <a asp-action="Edit" asp-route-id="@item.KategoriId"> Düzenle<i class="fa-solid fa-pen-to-square"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.KategoriId"><i class="fa-solid fa-circle-info"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.KategoriId"><i class="fa-solid fa-trash">Delete</i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+ <script src="~/lib/jquery/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />   
+  
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+<script type="text/javascript">      
+var js=jQuery.noConflict(true);        
+js(document).ready(function(){
+
+    js("#kategorid").DataTable({        
+         "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Turkish.json"
+            }
+
+    });
+
+}) ; 
+</script>
